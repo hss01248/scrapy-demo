@@ -13,21 +13,29 @@ BOT_NAME = 'quotesbot'
 
 SPIDER_MODULES = ['quotesbot.spiders']
 NEWSPIDER_MODULE = 'quotesbot.spiders'
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.54 Safari/536.5'
+# USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.54 Safari/536.5'
 ITEM_PIPELINES = {
-    'quotesbot.pipelines.JsonWriterPipeline': 300,
+    #'quotesbot.pipelines.JsonWriterPipeline': 300,
+    'quotesbot.pipelines.MyImagesPipeline': 200
 }
 
-# DOWNLOADER_MIDDLEWARES = {
-#         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
-#         'quotesbot.RotateUserAgentMiddleware' :400
-#     }
+DOWNLOADER_MIDDLEWARES = {
+         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
+         'quotesbot.middlewares.RotateUserAgentMiddleware' :400
+}
+
+
+IMAGES_STORE = 'G:\\pics\\doubanzipai'   # 图片存储路径
+#IMAGES_EXPIRES = 1200                                   # 过期天数
+IMAGES_MIN_HEIGHT = 50                               # 图片的最小高度
+IMAGES_MIN_WIDTH = 50                                # 图片的最小宽度
+# 图片的尺寸小于IMAGES_MIN_WIDTH*IMAGES_MIN_HEIGHT的图片都会被过滤
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'quotesbot (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32

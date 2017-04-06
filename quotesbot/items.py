@@ -31,3 +31,5 @@ class DoubanZipai(scrapy.Item):
     name = scrapy.Field()
     title = scrapy.Field()
     urls = scrapy.Field()
+    paths = scrapy.Field()
+

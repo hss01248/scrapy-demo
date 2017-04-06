@@ -24,7 +24,7 @@ class DoubanZipaiSpider(scrapy.Spider):
                 urls.append(url)
             if len(urls) > 0:
                 item = DoubanZipai()
-                item['urls'] = "#*#".join(urls)
+                item['urls'] = urls
                 item['name'] = response.xpath("//span[@class='from']/a/text()").extract_first()
                 item['title'] = response.xpath("//div[@id='content']/h1/text()").extract_first()
                 print("name"+item['name']+"\ntitle:"+ item['title'])
