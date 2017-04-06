@@ -37,6 +37,9 @@ IMAGES_MIN_WIDTH = 50                                # 图片的最小宽度
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+COOKIES_ENABLED = True # 开启cookie.Scrapy会自动管理cookies-保存为会话cookie.自动从response里更新
+COOKIES_DEBIG=True # log中打印cookie信息
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
